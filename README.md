@@ -16,4 +16,4 @@ Pepe Browser é um navegador simples que respeita a privacidade dos usuários. D
 1. Certifique-se de ter o Python instalado em sua máquina.
 2. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/pepe-browser.git
+   git clone https://github.com/BitIan01/pepe-browser.git

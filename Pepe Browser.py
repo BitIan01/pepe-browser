@@ -13,7 +13,7 @@ class BrowserTab(QWidget):
         self.layout = QVBoxLayout(self)
         self.browser = QWebEngineView()
         self.layout.addWidget(self.browser)
-        self.browser.setUrl(QUrl("https://www.duckduckgo.com"))  # Começa com DuckDuckGo
+        self.browser.setUrl(QUrl("http://pepeopenproject.rf.gd/pesquisar.html"))  # Começa com Pepe Search
 
         # Conecta o evento de download
         self.browser.page().profile().downloadRequested.connect(self.on_download_requested)

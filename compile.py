@@ -6,7 +6,7 @@ import sys
 # Nome do arquivo do seu programa
 script_name = 'Pepe Browser.py'
 # Ícone do seu aplicativo
-icon_name = 'icon.ico'  # ou icon.png se você preferir
+icon_name = 'icon.ico'
 
 # Função para verificar se o PyInstaller está instalado
 def check_pyinstaller():
@@ -16,17 +16,10 @@ def check_pyinstaller():
     except (subprocess.CalledProcessError, FileNotFoundError):
         return False
 
-# Instala o PyInstaller
+# Instala o PyInstaller se necessário
 def install_pyinstaller():
     print("PyInstaller não encontrado. Instalando...")
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'pyinstaller'])
-
-# Cria a pasta 'build' se não existir
-build_dir = 'build'
-os.makedirs(build_dir, exist_ok=True)
-
-# Copia o ícone para a pasta 'build'
-shutil.copy(icon_name, build_dir)
 
 # Verifica se o PyInstaller está instalado
 if not check_pyinstaller():
@@ -37,13 +30,19 @@ command = [
     'pyinstaller',
     '--onefile',
     '--noconsole',
-    f'--icon={os.path.join(build_dir, icon_name)}',  # Usa o ícone na nova pasta
+    f'--icon={icon_name}',  # Usa o ícone direto
     script_name
 ]
 
-# Executa o comando
+# Executa o comando do PyInstaller
 try:
     subprocess.run(command, check=True)
     print("Compilação concluída! O executável pode ser encontrado na pasta 'dist'.")
+
+    # Copia o ícone para a pasta 'dist'
+    dist_dir = 'dist'
+    os.makedirs(dist_dir, exist_ok=True)
+    shutil.copy(icon_name, os.path.join(dist_dir, icon_name))
+    print(f"O ícone foi copiado para a pasta '{dist_dir}'.")
 except subprocess.CalledProcessError as e:
     print(f"Erro na compilação: {e}")

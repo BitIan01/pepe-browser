@@ -16,7 +16,7 @@ Glide Browser é um navegador simples que respeita a privacidade dos usuários. 
 1. Certifique-se de ter o Python instalado em sua máquina.
 2. Clone este repositório:
    ```bash
-   git clone https://github.com/GlideBrowserProject/pepe-browser.git
+   git clone https://github.com/GlideBrowserProject/glide-browser.git
 3. Execute o arquivo 'compile.py' no cmd com o comando 'python compile.py'
 4. Execute o arquivo 'Glide Browser.exe' gerado na pasta build/dist
 

@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 # Nome do arquivo do seu programa
-script_name = 'Pepe Browser.py'
+script_name = 'Glide Browser.py'
 # Ícone do seu aplicativo
 icon_name = 'icon.ico'
 

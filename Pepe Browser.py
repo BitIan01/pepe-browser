@@ -13,7 +13,7 @@ class BrowserTab(QWidget):
         self.layout = QVBoxLayout(self)
         self.browser = QWebEngineView()
         self.layout.addWidget(self.browser)
-        self.browser.setUrl(QUrl("http://pepeopenproject.rf.gd/pesquisar.html"))  # Começa com Pepe Search
+        self.browser.setUrl(QUrl("http://glidebrowserproject.rf.gd/pesquisar.html"))  # Começa com Pepe Search
 
         # Conecta o evento de download
         self.browser.page().profile().downloadRequested.connect(self.on_download_requested)
@@ -36,10 +36,10 @@ class BrowserTab(QWidget):
         # Informa quando o download é concluído
         QMessageBox.information(self, "Download Completo", f"Download concluído: {QFileInfo(download.path()).fileName()}")
 
-class PepeBrowser(QMainWindow):
+class GlideBrowser(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Pepe Browser")
+        self.setWindowTitle("Glide Browser")
         self.setGeometry(300, 100, 1200, 800)
 
         # Define o ícone do navegador
@@ -123,6 +123,6 @@ class PepeBrowser(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = PepeBrowser()
+    window = GlideBrowser()
     window.show()
     sys.exit(app.exec_())

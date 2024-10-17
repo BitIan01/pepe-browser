@@ -8,22 +8,25 @@ script_name = 'Glide Browser.py'
 # Ícone do seu aplicativo
 icon_name = 'icon.ico'
 
-# Função para verificar se o PyInstaller está instalado
-def check_pyinstaller():
+# Função para verificar se um pacote está instalado
+def check_package(package):
     try:
-        subprocess.run(['pyinstaller', '--version'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        subprocess.run([sys.executable, '-m', package, '--version'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         return True
     except (subprocess.CalledProcessError, FileNotFoundError):
         return False
 
-# Instala o PyInstaller se necessário
-def install_pyinstaller():
-    print("PyInstaller não encontrado. Instalando...")
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'pyinstaller'])
+# Função para instalar um pacote
+def install_package(package):
+    print(f"{package} não encontrado. Instalando...")
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', package])
 
-# Verifica se o PyInstaller está instalado
-if not check_pyinstaller():
-    install_pyinstaller()
+# Verifica e instala PyInstaller, PyQt5 e PyQtWebEngine
+packages = ['pyinstaller', 'PyQt5', 'PyQtWebEngine']
+
+for package in packages:
+    if not check_package(package):
+        install_package(package)
 
 # Comando do PyInstaller
 command = [
